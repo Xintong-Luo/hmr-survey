@@ -23,8 +23,8 @@
 ### 1. 下载仓库
 
 ```bash
-git clone https://github.com/LUO11990/human-mesh-reconstruction-survey.git
-cd human-mesh-reconstruction-survey
+git clone https://github.com/Xintong-Luo/hmr-survey.git
+cd hmr-survey
 ```
 
 如果从 GitHub 下载了 ZIP，解压后在含有 `evaluation/` 的目录打开终端即可。三个示例的运行说明都从这个位置开始。
