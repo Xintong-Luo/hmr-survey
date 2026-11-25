@@ -570,6 +570,8 @@ InterHand2.6M 按手分别对齐根部，再用参考骨长恢复尺度。UBody 
 
 ## 四、评测示例
 
+[打开评测目录与快速入门](evaluation/README.md)
+
 | 示例 | 数据范围 | 实测结果 | 运行与结果 |
 | --- | --- | --- | --- |
 | **1. 手部网格 · HaMeR** | FreiHAND 全部 3,960 张测试图，每张图像评估 778 个顶点 | PA-MPVPE **5.7056 mm** | [运行说明](evaluation/freihand_table7/README.md) · [结果文件](evaluation/freihand_table7/result.json) |
@@ -577,20 +579,6 @@ InterHand2.6M 按手分别对齐根部，再用参考骨长恢复尺度。UBody 
 | **3. 多段轨迹 · FreeMoCap** | 3 名参与者、6 段跑台步行录制，共 42,243 帧 | 各段 RTE 等权平均 **0.02780%** | [运行说明](evaluation/freemocap_multivideo_rte/README.md) · [逐段结果](evaluation/freemocap_multivideo_rte/results.csv) |
 
 HaMeR 用 CPU 对已有预测评分，或用 GPU 从图像重新推理，按一位小数报告均为 **5.7 mm**，与综述表 7 一致。两个轨迹示例分别演示单段评分和跨录制汇总，结果仅对应各自列出的样本。
-
-<details>
-<summary>查看评测文件目录</summary>
-
-```text
-evaluation/
-├── freihand_table7/           HaMeR 手部网格评测
-├── emdb_glamr_rte/            GLAMR 单段轨迹评分
-└── freemocap_multivideo_rte/  FreeMoCap 多段轨迹评分
-```
-
-每个目录内的 `README.md` 都列出了数据来源和运行命令。
-
-</details>
 
 [↑ 返回目录](#contents)
 

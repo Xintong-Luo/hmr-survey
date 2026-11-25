@@ -1,39 +1,70 @@
-# 在一段 EMDB 实拍序列上计算 GLAMR 的根轨迹误差
+# GLAMR · 单段骨盆轨迹评测
 
-在 EMDB 作者发布的室外行走示例上，GLAMR 的预测与参考骨盆轨迹相差 **19.19% RTE**。本例使用作者随论文图 9 提供的既有预测，在 CPU 上完成评分。数据来自 P9 的 `80_outdoor_walk_big_circle`，人物编号 0，使用该文件从 0 到 2239 的全部 2,240 帧。[EMDB 官方示例](https://github.com/eth-ait/emdb/tree/9a4eab677181a3789bda7ba5c36ab8cff797380c#visualize-glamr)
+[评测目录](../README.md) · [评分脚本](evaluate.py) · [参考结果](result.json) · [综述首页](../../README.md)
 
-## 运行
+> 用 EMDB 的一段室外步行序列，测量 GLAMR 预测的骨盆轨迹与参考轨迹相差多远。全部 **2,240 帧**对齐后，平均距离为 **20.42 m**，根轨迹误差（RTE）为 **19.19%**。
 
-在本目录执行以下命令。脚本从 EMDB 官方仓库下载约 12.4 MB 的固定版本样本，并校验 SHA-256。评分只依赖 NumPy。
+## 一、数据与准备
+
+| 输入 | 本例使用的内容 |
+| --- | --- |
+| 实拍序列 | EMDB 的 `P9/80_outdoor_walk_big_circle`，人物 0，第 0 至 2,239 帧 |
+| 参考轨迹 | EMDB 样本中的三维骨盆位置 `gt[0].root_trans` |
+| 预测轨迹 | 同一文件中 GLAMR 已生成的世界坐标 `person_data[0].root_trans_world` |
+
+只需 CPU、Python 3 和 NumPy。首次运行时，脚本会下载指定版本的样本（约 12.4 MB），再用 SHA-256 检查文件。也可以提前下载，保存为 `P9_80_seed1.pkl`。[下载样本](https://raw.githubusercontent.com/eth-ait/emdb/9a4eab677181a3789bda7ba5c36ab8cff797380c/assets/GLAMR/P9_80_seed1.pkl) · [EMDB 官方示例](https://github.com/eth-ait/emdb/tree/9a4eab677181a3789bda7ba5c36ab8cff797380c#visualize-glamr) · [样本许可](https://github.com/eth-ait/emdb/blob/9a4eab677181a3789bda7ba5c36ab8cff797380c/assets/GLAMR/LICENSE.txt)
+
+## 二、运行评测
+
+### 1. 进入示例目录
+
+在 Linux 或 macOS 上，从仓库根目录打开终端并创建 Python 环境。后续命令都在这个示例目录内运行。
 
 ```bash
-python3 -m pip install numpy
-python3 evaluate.py --output result.json
+cd evaluation/emdb_glamr_rte
+mkdir -p runs
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install numpy
 ```
 
-若已下载同一版本的 `P9_80_seed1.pkl`，可离线运行。加上 `--plot` 会生成轨迹图。
+### 2. 计算轨迹误差
 
 ```bash
-python3 -m pip install matplotlib
-python3 evaluate.py --input P9_80_seed1.pkl --output result.json --plot trajectories.png
+python evaluate.py --output runs/result.json
 ```
 
-## 结果怎样读
+终端会打印评分，完整结果同时写入 `runs/result.json`。可以将其中的 `rte_percent` 与本页的[参考结果](result.json)对照。
 
-| 量 | 本次运行 |
-|---|---:|
-| 参考骨盆轨迹走过的总长度 | 106.3839 m |
-| 对齐后逐帧三维骨盆距离的均值 | 20.4173 m |
-| 根轨迹误差（RTE） | **19.1920%** |
+<details>
+<summary>使用本地样本并绘制轨迹图</summary>
 
-计算时从示例文件读取同一人物、同一帧的参考坐标 `gt[0].root_trans` 和预测坐标 `person_data[0].root_trans_world`。把整段预测轨迹向参考轨迹做一次刚体对齐，允许旋转和平移，尺度固定为 1。对齐后，计算每一帧的三维欧氏距离并取平均。最后除以参考轨迹相邻帧之间距离的总和，再乘以 100%。例如本次运行得到 20.4173 ÷ 106.3839 × 100% ≈ 19.19%。[WHAM 的 RTE 计算函数](https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/lib/eval/eval_utils.py#L464-L482)
+将下载的 `P9_80_seed1.pkl` 放到当前示例目录。绘图另外需要 Matplotlib，依赖装好后即可离线运行。
 
-![左图为骨盆轨迹在世界坐标 X–Z 平面的投影，右图为逐帧三维误差。](trajectories.png)
+```bash
+python -m pip install matplotlib
+python evaluate.py --input P9_80_seed1.pkl --output runs/result.json --plot runs/trajectories.png
+```
 
-左图中两条轨迹共用坐标原点，圆点标出各自的第一帧。右图中虚线是整段均值。可在 [result.json](result.json) 查看完整精度和样本校验值。
+</details>
 
-## 核验与适用范围
+## 三、结果解读
 
-- 本次计算用 Python 3.12.3 与 NumPy 2.5.3。将同两条轨迹输入 WHAM 的原版 `compute_rte`（PyTorch 2.6.0，float32），得到 19.192026%；本脚本用 float64 得到 19.192046%，两者相差约 0.000020 个百分点。
-- 该数值用于演示综述表 8 的 RTE 计算。参考轨迹取自公开示例内部的骨盆根关节，帧范围也由该示例确定。表 8 的全测试集结果另有数据划分、有效帧筛选和模型平移量定义，两者应分开报告。[EMDB 示例读取程序](https://github.com/eth-ait/emdb/blob/9a4eab677181a3789bda7ba5c36ab8cff797380c/visualize_GLAMR.py) · [WHAM 完整评测入口](https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/lib/eval/evaluate_emdb.py)
-- 样本由 EMDB 作者发布，预测方法为 GLAMR。下载和使用该样本请参阅上游说明。[EMDB](https://eth-ait.github.io/emdb/) · [GLAMR](https://github.com/NVlabs/GLAMR) · [示例附带的许可](https://github.com/eth-ait/emdb/blob/9a4eab677181a3789bda7ba5c36ab8cff797380c/assets/GLAMR/LICENSE.txt)
+| 输出字段 | 含义 | 本例结果 |
+| --- | --- | ---: |
+| `reference_path_length_m` | 参考骨盆在相邻帧间移动的距离之和 | 106.3839 m |
+| `mean_aligned_root_distance_m` | 对齐后，预测与参考骨盆逐帧三维距离的均值 | 20.4173 m |
+| `rte_percent` | 平均距离占参考轨迹总长度的百分比 | **19.1920%** |
+
+脚本对整段预测轨迹统一做一次旋转和平移，尺度固定为 1。用本例的数值计算，RTE = 20.4173 ÷ 106.3839 × 100% ≈ **19.19%**。这个分数只对应上述序列。复核 EMDB2 全测试集的成绩时，还需按该基准选择序列、有效帧和参考平移量。[EMDB 读取程序](https://github.com/eth-ait/emdb/blob/9a4eab677181a3789bda7ba5c36ab8cff797380c/visualize_GLAMR.py) · [完整评测入口](https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/lib/eval/evaluate_emdb.py)
+
+![左图比较世界坐标 X–Z 平面上的预测和参考骨盆轨迹，右图显示逐帧三维距离及其均值](trajectories.png)
+
+左图的圆点表示各自的起点。右图的虚线标出平均距离 **20.42 m**，可以据此找到偏差较大的帧。
+
+<details>
+<summary>查看独立核验与项目来源</summary>
+
+对同一输入，WHAM 原版 `compute_rte`（PyTorch 2.6.0，float32）得到 19.192026%，本例脚本（NumPy，float64）得到 19.192046%，相差约 0.000020 个百分点。[WHAM 的 RTE 实现](https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/lib/eval/eval_utils.py#L464-L482) · [EMDB 数据项目](https://eth-ait.github.io/emdb/) · [GLAMR 模型项目](https://github.com/NVlabs/GLAMR)
+
+</details>
