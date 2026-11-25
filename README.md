@@ -8,19 +8,40 @@
 
 ## 目录
 
-| 栏目 | 常用入口 |
-| --- | --- |
-| [**一、算法与模型**](#algorithms) | [单目重建](#alg-body) · [移动相机](#alg-moving) · [多目重建](#alg-multi) |
-| [**二、数据集**](#datasets) | [按任务查找](#ds-tasks) · [训练与实拍数据](#ds-more) · [测试集与协议](#data-by-table) |
-| [**三、评价指标**](#metrics) | [局部骨架与网格](#metrics-local) · [世界运动与接触](#metrics-world) · [相机轨迹](#metrics-camera) |
-| [**四、评测示例**](#evaluation) | [手部网格误差](evaluation/freihand_table7/README.md) · [单段轨迹](evaluation/emdb_glamr_rte/README.md) · [多段轨迹](evaluation/freemocap_multivideo_rte/README.md) |
-| [**五、延伸阅读**](#reading) | 人体网格综述、人体化身与群组空间布局 |
+[**一、算法与模型**](#algorithms)
+
+1. [人体表示与姿态估计](#alg-foundation)
+2. [单目人体重建](#alg-body)
+3. [手、脸与全身重建](#alg-whole)
+4. [移动相机与世界坐标重建](#alg-moving)
+5. [多目人体重建](#alg-multi)
+6. [基础工具与代表方法](#alg-tools)
+
+[**二、数据集**](#datasets)
+
+1. [按重建任务查找](#ds-tasks)
+2. [训练数据与多机位实拍](#ds-more)
+3. [测试集与评测协议](#data-by-table)
+
+[**三、评价指标**](#metrics)
+
+1. [局部骨架、网格与时间连续性](#metrics-local)
+2. [世界运动、多人布局与场景接触](#metrics-world)
+3. [相机位置与朝向](#metrics-camera)
+
+[**四、评测示例**](#evaluation)
+
+1. [HaMeR · 手部网格](#case-hamer)
+2. [GLAMR · 单段骨盆轨迹](#case-glamr)
+3. [FreeMoCap · 多段骨盆轨迹](#case-freemocap)
+
+[**五、相关综述与应用研究**](#reading)
 
 <a id="algorithms"></a>
 
 ## 一、算法与模型
 
-按重建任务展开条目，可查看每种方法的年份、主要用途、原论文和作者资源。
+各表按重建任务列出方法的发表年份、主要用途、原论文和作者资源。
 
 <a id="alg-foundation"></a>
 
@@ -28,8 +49,7 @@
 
 <a id="models"></a>
 
-<details>
-<summary><strong>人体模型与网格标注</strong>（12 项）</summary>
+#### 1.1 人体模型与网格标注
 
 | 模型或工具 | 年份 | 用途 | 论文 | 实现、模型或数据 |
 | --- | --- | --- | --- | --- |
@@ -48,12 +68,9 @@
 
 网格示意素材可从 [SOMA-X（MANO、SMPL-X）](https://github.com/NVlabs/SOMA-X/blob/main/docs/data_assets.md) 和 [TF_FLAME（FLAME）](https://github.com/TimoBolkart/TF_FLAME) 获取。
 
-</details>
-
 <a id="monocular"></a>
 
-<details>
-<summary><strong>三维姿态、定位与关联</strong>（17 项）</summary>
+#### 1.2 三维姿态、定位与关联
 
 | 方法 | 年份 | 任务 | 原论文 | 代码与项目 |
 | --- | ---: | --- | --- | --- |
@@ -75,16 +92,13 @@
 | VoxelPose | 2020 | 在共享体素空间定位多人并预测三维关节 | [论文](https://doi.org/10.1007/978-3-030-58452-8_12) | [代码](https://github.com/microsoft/voxelpose-pytorch) |
 | MVGFormer | 2024 | 交替更新多视图二维关节和三维姿态 | [论文](https://doi.org/10.1109/cvpr52733.2024.00074) | [代码](https://github.com/XunshanMan/MVGFormer) |
 
-</details>
-
 <a id="alg-body"></a>
 
 ### 2. 单目人体重建
 
 <a id="single-image"></a>
 
-<details>
-<summary><strong>单图身体回归与概率建模</strong>（29 项）</summary>
+#### 2.1 单图身体回归与概率建模
 
 | 方法 | 年份 | 任务 | 原论文 | 代码与项目 |
 | --- | ---: | --- | --- | --- |
@@ -118,12 +132,9 @@
 | DPMesh | 2024 | 用预训练扩散模型的特征增强遮挡人体表示 | [论文](https://doi.org/10.1109/cvpr52733.2024.00111) | [代码](https://github.com/RAMMUSLeo/DPMesh) |
 | MEGA | 2025 | 通过掩码生成式自编码器恢复人体网格 | [论文](https://doi.org/10.1109/cvpr52734.2025.00505) | [代码](https://github.com/g-fiche/MEGA) |
 
-</details>
-
 <a id="video"></a>
 
-<details>
-<summary><strong>视频身体回归与测试时自适应</strong>（13 项）</summary>
+#### 2.2 视频身体回归与测试时自适应
 
 | 方法 | 年份 | 任务 | 原论文 | 代码与项目 |
 | --- | ---: | --- | --- | --- |
@@ -141,12 +152,9 @@
 | DynaBOA | 2023 | 动态调整双层在线适应过程 | [论文](https://doi.org/10.1109/tpami.2022.3194167) | [代码](https://github.com/syguan96/DynaBOA) |
 | CycleAdapt | 2023 | 循环更新图像回归器与序列去噪器 | [论文](https://doi.org/10.1109/iccv51070.2023.01362) | [代码](https://github.com/hygenie1228/CycleAdapt_RELEASE) |
 
-</details>
-
 <a id="fitting"></a>
 
-<details>
-<summary><strong>人体模型拟合与优化</strong>（13 项）</summary>
+#### 2.3 人体模型拟合与优化
 
 | 方法 | 年份 | 任务 | 原论文 | 代码与项目 |
 | --- | ---: | --- | --- | --- |
@@ -164,16 +172,13 @@
 | Pose-NDF | 2022 | 用神经距离场限制可行人体姿态 | [论文](https://doi.org/10.1007/978-3-031-20065-6_33) | [代码](https://github.com/garvita-tiwari/PoseNDF) |
 | ScoreHMR | 2024 | 以图像重投影误差引导扩散模型细化姿态 | [论文](https://doi.org/10.1109/cvpr52733.2024.00092) | [代码](https://github.com/statho/ScoreHMR) |
 
-</details>
-
 <a id="alg-whole"></a>
 
 ### 3. 手、脸与全身重建
 
 <a id="parts"></a>
 
-<details>
-<summary><strong>独立手部与面部恢复</strong>（17 项）</summary>
+#### 3.1 独立手部与面部恢复
 
 | 方法 | 年份 | 任务 | 原论文 | 代码与项目 |
 | --- | ---: | --- | --- | --- |
@@ -195,12 +200,9 @@
 | HiFace | 2023 | 用静态位移图和动态位移图恢复表情细节 | [论文](https://doi.org/10.1109/iccv51070.2023.00834) | [作者项目](https://project-hiface.github.io/)；暂未找到作者公开的代码链接 |
 | EMOCA | 2022 | 在 DECA 上加入情绪感知的表情约束 | [论文](https://doi.org/10.1109/cvpr52688.2022.01967) | [代码](https://github.com/radekd91/emoca) |
 
-</details>
-
 <a id="whole-body"></a>
 
-<details>
-<summary><strong>统一全身人体恢复</strong>（10 项）</summary>
+#### 3.2 统一全身人体恢复
 
 | 方法 | 年份 | 任务 | 原论文 | 代码与项目 |
 | --- | ---: | --- | --- | --- |
@@ -215,16 +217,13 @@
 | SMPLest-X | 2026 | 用任务标记解码器回归表达性人体 | [论文](https://doi.org/10.1109/tpami.2025.3618174) | [代码](https://github.com/MotrixLab/SMPLest-X) |
 | DPoser-X | 2025 | 用联合扩散先验约束身体、手部与面部姿态 | [论文](https://doi.org/10.1109/iccv51701.2025.00931) | [代码](https://github.com/moonbow721/DPoser-X) |
 
-</details>
-
 <a id="alg-moving"></a>
 
 ### 4. 移动相机与世界坐标重建
 
 <a id="cameras"></a>
 
-<details>
-<summary><strong>相机感知的单目网格</strong>（9 项）</summary>
+#### 4.1 相机感知的单目网格
 
 | 方法 | 年份 | 任务 | 论文 | 代码或项目 |
 | --- | --- | --- | --- | --- |
@@ -238,12 +237,9 @@
 | D&D | 2022 | 在动态相机参照中建模惯性项，通过接触与受约束动力学更新运动 | [论文](https://doi.org/10.1007/978-3-031-20065-6_28) | [代码](https://github.com/jeffffffli/DnD) |
 | Human Mesh Recovery from Multiple Shots | 2022 | 在镜头切换时分开整体朝向与内部姿态，约束跨镜头动作连续性 | [论文](https://doi.org/10.1109/cvpr52688.2022.00154) | [代码](https://github.com/geopavlakos/multishot) |
 
-</details>
-
 <a id="world-motion"></a>
 
-<details>
-<summary><strong>人体运动与相机轨迹联合估计</strong>（17 项）</summary>
+#### 4.2 人体运动与相机轨迹联合估计
 
 | 方法 | 年份 | 任务 | 论文 | 代码或项目 |
 | --- | --- | --- | --- | --- |
@@ -265,12 +261,9 @@
 | PACE | 2024 | 用人体动作场和背景点重投影分阶段优化人体与逐帧相机位姿 | [论文](https://doi.org/10.1109/3dv62453.2024.00103) | [作者项目](https://nvlabs.github.io/PACE/) · 暂未找到作者公开的代码链接 |
 | BodySLAM | 2022 | 把人体运动模型纳入相机定位与场景建图 | [论文](https://doi.org/10.1007/978-3-031-19842-7_38) | [作者项目](https://srl.cit.tum.de/research/projects/bodyslam) · 暂未找到作者公开的代码链接 |
 
-</details>
-
 <a id="interaction"></a>
 
-<details>
-<summary><strong>多人跟踪与人景交互</strong>（19 项）</summary>
+#### 4.3 多人跟踪与人景交互
 
 | 方法 | 年份 | 任务 | 论文 | 代码或项目 |
 | --- | --- | --- | --- | --- |
@@ -294,16 +287,13 @@
 | MASt3R | 2024 | 在三维点图上学习稠密匹配特征，为多视图关联提供对应 | [论文](https://doi.org/10.1007/978-3-031-73220-1_5) | [代码](https://github.com/naver/mast3r) |
 | VGGT | 2025 | 从多视图图像预测相机参数、深度、点图与点轨迹 | [论文](https://doi.org/10.1109/cvpr52734.2025.00499) | [代码](https://github.com/facebookresearch/vggt) |
 
-</details>
-
 <a id="alg-multi"></a>
 
 ### 5. 多目人体重建
 
 <a id="multiview"></a>
 
-<details>
-<summary><strong>标定多目、参数融合与序列拟合</strong>（13 项）</summary>
+#### 5.1 标定多目、参数融合与序列拟合
 
 | 方法 | 年份 | 任务 | 论文 | 代码或项目 |
 | --- | --- | --- | --- | --- |
@@ -321,12 +311,9 @@
 | Monocular Models are Strong Learners | 2026 | 在逐视图特征和虚拟视图参数之间交替更新，结合解剖点重投影细化人体 | [论文](https://doi.org/10.1007/978-3-032-36839-3_10) | 暂未找到作者公开的代码链接 |
 | Training-free Multi-view 4D | 2026 | 在标定相机参考下融合单目全身预测，用几何和跟踪恢复多人序列 | [论文](https://doi.org/10.1109/wacv61042.2026.00039) | [代码](https://github.com/Att100/MV4DHMR) |
 
-</details>
-
 <a id="moving-multiview"></a>
 
-<details>
-<summary><strong>精细多目、人体辅助标定与移动多目</strong>（11 项）</summary>
+#### 5.2 精细多目、人体辅助标定与移动多目
 
 | 方法 | 年份 | 任务 | 论文 | 代码或项目 |
 | --- | --- | --- | --- | --- |
@@ -342,16 +329,13 @@
 | AirPose / AirPose+ | 2022 | 在飞行相机间共享局部构型，分别估计整体放置，并可经序列优化细化 | [论文](https://doi.org/10.1109/lra.2022.3145494) | [代码](https://github.com/robot-perception-group/AirPose) |
 | SmartMocap | 2023 | 联合估计固定与移动相机组合中的相机轨迹和人体运动 | [论文](https://doi.org/10.1109/lra.2023.3264743) | [代码](https://github.com/robot-perception-group/SmartMocap) |
 
-</details>
-
 <a id="alg-tools"></a>
 
 ### 6. 基础工具与代表方法
 
 <a id="geometry"></a>
 
-<details>
-<summary><strong>几何估计与跟踪</strong>（8 项）</summary>
+#### 6.1 几何估计与跟踪
 
 | 方法 | 年份 | 任务 | 论文 | 代码或项目 |
 | --- | --- | --- | --- | --- |
@@ -364,12 +348,9 @@
 | Graph-Based | 2021 | 将多视图人体关节关联建模为图，用于多人三维姿态恢复 | [论文](https://doi.org/10.1109/iccv48922.2021.01096) | [代码](https://github.com/wusize/multiview_pose) |
 | Faster VoxelPose | 2022 | 用正交投影加速体素空间的多人三维姿态恢复 | [论文](https://doi.org/10.1007/978-3-031-20068-7_9) | [代码](https://github.com/AlvinYH/Faster-VoxelPose) |
 
-</details>
-
 <a id="components"></a>
 
-<details>
-<summary><strong>投影几何与实验组件</strong>（4 项）</summary>
+#### 6.2 投影几何与实验组件
 
 | 组件 | 用途 | 论文或文档 | 实现 |
 | --- | --- | --- | --- |
@@ -378,12 +359,9 @@
 | ViT | WHAM 评测中使用的一种视觉编码器 | [ViT 原论文](https://research.google/pubs/an-image-is-worth-16x16-words-transformers-for-image-recognition-at-scale/) | [作者代码](https://github.com/google-research/vision_transformer) |
 | ARKit | 设备跟踪提供参考相机旋转，可与纯视觉估计的旋转对照 | [Apple 世界跟踪文档](https://developer.apple.com/documentation/arkit/understanding-world-tracking) | [ARCamera 接口](https://developer.apple.com/documentation/arkit/arcamera) |
 
-</details>
-
 <a id="timeline"></a>
 
-<details>
-<summary><strong>代表方法与发表年份</strong>（5 项）</summary>
+#### 6.3 代表方法与发表年份
 
 | 方法 | 年份 | 任务 | 论文 | 作者发布 |
 | --- | --- | --- | --- | --- |
@@ -392,8 +370,6 @@
 | OnlineHMR | 2026 | 从视频流逐步恢复世界坐标系中的人体运动 | [CVPR 论文](https://openaccess.thecvf.com/content/CVPR2026/html/Zhao_OnlineHMR_Video-based_Online_World-Grounded_Human_Mesh_Recovery_CVPR_2026_paper.html) | [代码](https://github.com/Tsukasane/Video-OnlineHMR) |
 | HumanBA | 2026 | 在束调整中分解相机与人体运动，联合优化二者 | [CVPR 论文](https://openaccess.thecvf.com/content/CVPR2026/html/Yang_HumanBA_Human-Aware_Bundle_Adjustment_via_Global_Human-Camera_Decoupling_CVPR_2026_paper.html) | [作者仓库，核对时为空](https://github.com/MartaYang/HumanBA) |
 | UniSH | 2026 | 在一次前馈推理中统一重建场景与人体 | [CVPR 论文](https://openaccess.thecvf.com/content/CVPR2026/html/Li_UniSH_Unifying_Scene_and_Human_Reconstruction_in_a_Feed-Forward_Pass_CVPR_2026_paper.html) | [代码与权重](https://github.com/murphylmf/UniSH) |
-
-</details>
 
 [↑ 返回目录](#contents)
 
@@ -409,8 +385,7 @@
 
 <a id="data-body"></a>
 
-<details>
-<summary><strong>身体、手部与面部</strong>（7 项）</summary>
+#### 1.1 身体、手部与面部
 
 | 资源 | 观测、标注与用途 | 原始论文 | 数据获取与工具 |
 | --- | --- | --- | --- |
@@ -422,12 +397,9 @@
 | EHF | 表达性全身图像、扫描与 SMPL-X 注册表面。登录后取 EHF 评测数据。 | [论文](https://doi.org/10.1109/cvpr.2019.01123) | [SMPL-X 项目下载](https://smpl-x.is.tue.mpg.de/download.php) · [模型读取](https://github.com/vchoutas/smplx) |
 | UBody | 真实上半身视频与 SMPL-X 伪标签，可检验裁剪及遮挡条件下的部件恢复。 | [论文](https://doi.org/10.1109/cvpr52729.2023.02027) | [作者申请表](https://docs.google.com/forms/d/e/1FAIpQLSehgBP7wdn_XznGAM2AiJPiPLTqXXHw5uX9l7qeQ1Dh9HoO_A/viewform) · [OSX 数据处理与评测](https://github.com/IDEA-Research/OSX) |
 
-</details>
-
 <a id="data-motion"></a>
 
-<details>
-<summary><strong>移动相机与世界运动</strong>（3 项）</summary>
+#### 1.2 移动相机与世界运动
 
 | 资源 | 观测、标注与用途 | 原始论文 | 数据获取与工具 |
 | --- | --- | --- | --- |
@@ -435,12 +407,9 @@
 | EMDB（EMDB1 / EMDB2） | 电磁跟踪与手持 RGB-D。EMDB1 用于评估局部身体重建，EMDB2 用于评估世界坐标系中的人体运动。 | [论文](https://doi.org/10.1109/iccv51070.2023.01345) | [官方申请](https://emdb.ait.ethz.ch/) · [数据说明](https://eth-ait.github.io/emdb/) · [评测工具](https://github.com/eth-ait/emdb) |
 | MoviCam | 移动相机人体、相机与地形参考，含 8 段序列。评测按平地和非平地分组。 | [论文](https://doi.org/10.1109/cvprw67362.2025.00374) | [原始数据与配套文件](https://doi.org/10.17617/3.DGK9OM) · [下载与目录说明](https://github.com/aidilayce/PhysDynPose/blob/main/DATASET.md) · [代码](https://github.com/aidilayce/PhysDynPose) |
 
-</details>
-
 <a id="data-multiview"></a>
 
-<details>
-<summary><strong>同步多目与多人交互</strong>（3 项）</summary>
+#### 1.3 同步多目与多人交互
 
 | 资源 | 观测、标注与用途 | 原始论文 | 数据获取与工具 |
 | --- | --- | --- | --- |
@@ -448,12 +417,9 @@
 | Hi4D | 同步多目记录双人近距离互动，提供逐人注册网格与相对位置。 | [论文](https://doi.org/10.1109/cvpr52729.2023.01632) | [申请下载](https://hi4d.ait.ethz.ch/) · [读取与可视化](https://github.com/yifeiyin04/Hi4D) |
 | EgoHumans | 多人自视点与外部视点、多目拟合人体和身份关联。HSfM 使用同步外部视图。 | [论文](https://doi.org/10.1109/iccv51070.2023.01814) | [数据与测试标注](https://github.com/rawalkhirodkar/egohumans/blob/main/assets/DOWNLOAD.md) · [处理代码](https://github.com/rawalkhirodkar/egohumans) |
 
-</details>
-
 <a id="data-scene"></a>
 
-<details>
-<summary><strong>人景交互与运动先验</strong>（3 项）</summary>
+#### 1.4 人景交互与运动先验
 
 | 资源 | 观测、标注与用途 | 原始论文 | 数据获取与工具 |
 | --- | --- | --- | --- |
@@ -461,16 +427,13 @@
 | BEHAVE | 多目 RGB-D 下的人与物体交互，含双方几何、接触及对应注册。 | [论文](https://doi.org/10.1109/cvpr52688.2022.01547) | [许可与下载](https://virtualhumans.mpi-inf.mpg.de/behave/license.html) · [作者代码](https://github.com/bharat-b7/BEHAVE) |
 | AMASS | 多源标记点动捕经 MoSh++ 统一拟合为人体模型运动，主要用作时序先验；无配套实拍 RGB。 | [论文](https://doi.org/10.1109/iccv.2019.00554) | [注册后按来源下载](https://amass.is.tue.mpg.de/download.php) · [使用工具](https://github.com/nghorbani/amass) |
 
-</details>
-
 <a id="ds-more"></a>
 
 ### 2. 训练数据与多机位实拍
 
 <a id="data-training"></a>
 
-<details>
-<summary><strong>网格监督、训练与外部评测</strong>（12 项）</summary>
+#### 2.1 网格监督、训练与外部评测
 
 | 资源 | 观测、标注与用途 | 原始论文 | 数据获取与工具 |
 | --- | --- | --- | --- |
@@ -487,20 +450,15 @@
 | MPI-INF-3DHP | 含标定多视角图像与三维关节标注，供 WHAM 训练。 | [论文](https://arxiv.org/abs/1611.09813) | [作者数据页与下载脚本](https://vcai.mpi-inf.mpg.de/3dhp-dataset/) |
 | InstaVariety | 自然场景人体视频，用于时序训练。作者发布视频清单、轨迹、划分及预处理数据，原视频依赖来源可用性。 | [论文](https://doi.org/10.1109/cvpr.2019.00576) | [数据与下载脚本](https://github.com/akanazawa/human_dynamics/blob/master/doc/insta_variety.md) |
 
-</details>
-
 <a id="data-capture"></a>
 
-<details>
-<summary><strong>移动多机位实拍</strong>（3 项）</summary>
+#### 2.2 移动多机位实拍
 
 | 资源 | 观测、标注与用途 | 原始论文 | 数据获取与工具 |
 | --- | --- | --- | --- |
 | AirCap 实拍 | 无人机视图按时间近邻匹配，用身体惯性与差分 GPS 辅助参考。 | [论文](https://doi.org/10.1109/iccv.2019.00091) | [注册下载](https://aircapdata.is.tue.mpg.de/download.php) · [人体估计器](https://github.com/robot-perception-group/Aircap_Pose_Estimator) |
 | AirPose 实拍 | 两架无人机一架悬停、一架绕飞。作者将真实录像和合成数据分包，实拍主要用于定性评价。 | [论文](https://doi.org/10.1109/lra.2022.3145494) | [下载说明与文件名](https://github.com/robot-perception-group/AirPose#airpose) · [作者数据目录](https://keeper.mpdl.mpg.de/d/1cae0814c4474f5a8e19/) |
 | SmartMocap 手机实拍 | 两台固定手机和两台移动手机，人工同步。作者的 VolleyDay 采集与 RICH 实验分别发布。 | [论文](https://doi.org/10.1109/lra.2023.3264743) | [作者下载与脚本](https://github.com/robot-perception-group/SmartMocap#download-data) · [项目注册](https://smartmocap.is.tue.mpg.de/register.php) |
-
-</details>
 
 <a id="data-by-table"></a>
 
@@ -574,9 +532,9 @@ InterHand2.6M 按手分别对齐根部，再用参考骨长恢复尺度。UBody 
 
 | 示例 | 数据范围 | 实测结果 | 运行与结果 |
 | --- | --- | --- | --- |
-| **1. 手部网格 · HaMeR** | FreiHAND 全部 3,960 张测试图，每张图像评估 778 个顶点 | PA-MPVPE **5.7056 mm** | [运行说明](evaluation/freihand_table7/README.md) · [结果文件](evaluation/freihand_table7/result.json) |
-| **2. 单段轨迹 · GLAMR** | EMDB 一段室外行走序列，2,240 帧 | 根轨迹误差（RTE）**19.19%** | [运行说明](evaluation/emdb_glamr_rte/README.md) · [结果文件](evaluation/emdb_glamr_rte/result.json) |
-| **3. 多段轨迹 · FreeMoCap** | 3 名参与者、6 段跑台步行录制，共 42,243 帧 | 各段 RTE 等权平均 **0.02780%** | [运行说明](evaluation/freemocap_multivideo_rte/README.md) · [逐段结果](evaluation/freemocap_multivideo_rte/results.csv) |
+| <a id="case-hamer"></a>**1. 手部网格 · HaMeR** | FreiHAND 全部 3,960 张测试图，每张图像评估 778 个顶点 | PA-MPVPE **5.7056 mm** | [运行说明](evaluation/freihand_table7/README.md) · [结果文件](evaluation/freihand_table7/result.json) |
+| <a id="case-glamr"></a>**2. 单段轨迹 · GLAMR** | EMDB 一段室外行走序列，2,240 帧 | 根轨迹误差（RTE）**19.19%** | [运行说明](evaluation/emdb_glamr_rte/README.md) · [结果文件](evaluation/emdb_glamr_rte/result.json) |
+| <a id="case-freemocap"></a>**3. 多段轨迹 · FreeMoCap** | 3 名参与者、6 段跑台步行录制，共 42,243 帧 | 各段 RTE 等权平均 **0.02780%** | [运行说明](evaluation/freemocap_multivideo_rte/README.md) · [逐段结果](evaluation/freemocap_multivideo_rte/results.csv) |
 
 HaMeR 用 CPU 对已有预测评分，或用 GPU 从图像重新推理，按一位小数报告均为 **5.7 mm**，与综述表 7 一致。两个轨迹示例分别演示单段评分和跨录制汇总，结果仅对应各自列出的样本。
 
@@ -584,9 +542,9 @@ HaMeR 用 CPU 对已有预测评分，或用 GPU 从图像重新推理，按一�
 
 <a id="reading"></a>
 
-## 五、延伸阅读
+## 五、相关综述与应用研究
 
-| 阅读主题 | 综述与研究论文 |
+| 研究主题 | 综述与研究论文 |
 | --- | --- |
 | 单目人体网格、姿态与网格恢复 | [Tian 等，2023，单目网格恢复](https://doi.org/10.1109/TPAMI.2023.3298850) · [Liu 等，2024，姿态估计与网格恢复](https://doi.org/10.1016/j.neucom.2024.128049) |
 | 穿衣人体与高保真几何 | [陈鸿鹄等，2024](https://doi.org/10.11834/jig.230646) · [Yang 等，2025，逼真穿衣人体](https://doi.org/10.1007/s00371-024-03641-7) · [Chen 等，2026，传统与扩散方法](https://doi.org/10.1007/s44443-025-00460-1) |
