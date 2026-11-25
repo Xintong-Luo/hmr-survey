@@ -73,7 +73,7 @@ CPU 路线从随包预测生成顶点并重新评分；GPU 路线从原始 RGB �
 | GHUM / GHUML | 2020 | 在非线性形状空间中联合表示全身、双手与面部 | [原论文](https://doi.org/10.1109/CVPR42600.2020.00622) | [作者资源与模型申请表](https://github.com/google-research/google-research/tree/master/ghum) |
 | SUPR | 2022 | 学习全身模型及可单独使用的身体部件模型 | [原论文](https://doi.org/10.1007/978-3-031-20086-1_33) | [代码](https://github.com/ahmedosman/SUPR) · [模型](https://supr.is.tue.mpg.de/) |
 | SKEL | 2023 | 通过生物力学骨架驱动身体表面 | [原论文](https://doi.org/10.1145/3618381) | [作者实现与模型获取说明](https://github.com/MarilynKeller/SKEL) |
-| 周敏等的 SMPL 引导残缺点云重建 | 2026 | 输入为不完整点云，结合语义、多尺度特征和顶点偏移细化网格 | [期刊原文](https://www.cjig.cn/zh/article/doi/10.11834/jig.250262/) | 未核实到作者公开实现 |
+| 周敏等的 SMPL 引导残缺点云重建 | 2026 | 输入为不完整点云，结合语义、多尺度特征和顶点偏移细化网格 | [期刊原文](https://www.cjig.cn/zh/article/doi/10.11834/jig.250262/) | 暂未找到作者公开的代码链接 |
 | MoSh / MoSh++ | 2014 / 2019 | 从动捕标记拟合体型与动作；分别关联表 10 的网格参考和 AMASS 运动资源 | [MoSh](https://doi.org/10.1145/2661229.2661273) · [MoSh++ / AMASS](https://amass.is.tue.mpg.de/) | [MoSh 项目](https://is.mpg.de/en/code/mosh-motion-and-shape-capture-from-sparse-markers) · [MoSh++ 代码](https://github.com/nghorbani/moshpp) |
 | NeuralAnnot | 2022 | 为已有数据生成参数化网格拟合标注；文中涉及 InterHand2.6M 与 Human3.6M | [原论文](https://arxiv.org/abs/2011.11232) | [作者发布的拟合标注及使用说明](https://github.com/mks0601/NeuralAnnot_RELEASE) |
 
@@ -89,8 +89,8 @@ CPU 路线从随包预测生成顶点并重新评分；GPU 路线从原始 RGB �
 | Integral Regression | 2018 | 对关节热图求期望，获得连续坐标 | [论文](https://doi.org/10.1007/978-3-030-01231-1_33) | [代码](https://github.com/JimmySuen/integral-human-pose) |
 | HEMlets Pose | 2019 | 用相邻关节的相对深度监督三维姿态 | [论文](https://doi.org/10.1109/iccv.2019.00243) | [推理代码](https://github.com/redrock303/HEMlets) |
 | ContextPose | 2021 | 用骨长关系约束多视图特征聚合 | [论文](https://doi.org/10.1109/cvpr46437.2021.00617) | [代码](https://github.com/ShirleyMaxx/ContextPose-PyTorch-release) |
-| HiPART | 2025 | 按层级自回归生成稠密骨架，缓解遮挡 | [论文](https://doi.org/10.1109/cvpr52734.2025.01566) | 未核实到作者代码 |
-| Orientation Keypoints | 2022 | 预测骨段的虚拟定向点，恢复轴向旋转 | [论文](https://doi.org/10.1109/tpami.2021.3136136) | 未核实到作者代码 |
+| HiPART | 2025 | 按层级自回归生成稠密骨架，缓解遮挡 | [论文](https://doi.org/10.1109/cvpr52734.2025.01566) | 暂未找到作者公开的代码链接 |
+| Orientation Keypoints | 2022 | 预测骨段的虚拟定向点，恢复轴向旋转 | [论文](https://doi.org/10.1109/tpami.2021.3136136) | 暂未找到作者公开的代码链接 |
 | VideoPose3D | 2019 | 用时间卷积从二维序列恢复三维关节 | [论文](https://doi.org/10.1109/cvpr.2019.00794) | [代码](https://github.com/facebookresearch/VideoPose3D) |
 | MixSTE | 2022 | 交替编码关节间和跨帧的依赖 | [论文](https://doi.org/10.1109/cvpr52688.2022.01288) | [代码](https://github.com/JinluZhang1126/MixSTE) |
 | MotionBERT | 2023 | 用掩码训练获得可迁移的运动表示 | [论文](https://doi.org/10.1109/iccv51070.2023.01385) | [代码](https://github.com/Walter0807/MotionBERT) |
@@ -120,16 +120,16 @@ CPU 路线从随包预测生成顶点并重新评分；GPU 路线从原始 RGB �
 | FastMETRO | 2022 | 用交叉注意力连接图像特征与几何表示 | [论文](https://doi.org/10.1007/978-3-031-19769-7_20) | [代码](https://github.com/postech-ami/FastMETRO) |
 | HybrIK | 2021 | 解析求摆动并学习扭转，使关节估计驱动网格 | [论文](https://doi.org/10.1109/cvpr46437.2021.00339) | [代码](https://github.com/jeffffffli/HybrIK) |
 | NIKI | 2023 | 用可逆神经网络建立关节与旋转的映射 | [论文](https://doi.org/10.1109/cvpr52729.2023.01243) | [代码](https://github.com/jeffffffli/NIKI) |
-| Pavlakos 等（关节与轮廓） | 2018 | 借助关节热图和人体轮廓恢复姿态及体型 | [论文](https://doi.org/10.1109/cvpr.2018.00055) | [作者项目](https://geopavlakos.github.io/projects/humanshape/)；未核实到作者代码 |
-| HoloPose | 2019 | 融合身体部件和稠密图像证据估计人体 | [论文](https://doi.org/10.1109/cvpr.2019.01114) | 未核实到作者代码 |
-| DenseRaC | 2019 | 以稠密姿态渲染与观测比较来估计参数 | [论文](https://doi.org/10.1109/iccv.2019.00785) | 未核实到作者代码 |
+| Pavlakos 等（关节与轮廓） | 2018 | 借助关节热图和人体轮廓恢复姿态及体型 | [论文](https://doi.org/10.1109/cvpr.2018.00055) | [作者项目](https://geopavlakos.github.io/projects/humanshape/)；暂未找到作者公开的代码链接 |
+| HoloPose | 2019 | 融合身体部件和稠密图像证据估计人体 | [论文](https://doi.org/10.1109/cvpr.2019.01114) | 暂未找到作者公开的代码链接 |
+| DenseRaC | 2019 | 以稠密姿态渲染与观测比较来估计参数 | [论文](https://doi.org/10.1109/iccv.2019.00785) | 暂未找到作者公开的代码链接 |
 | DaNet | 2022 | 分解身体部件特征，再聚合以回归姿态与体型 | [论文](https://doi.org/10.1109/TPAMI.2020.3042341) | [代码](https://github.com/HongwenZhang/DaNet-3DHumanReconstruction) |
 | DensePose | 2018 | 估计图像像素与人体表面之间的稠密对应 | [论文](https://doi.org/10.1109/cvpr.2018.00762) | [代码](https://github.com/facebookresearch/DensePose) |
 | PARE | 2021 | 用部件注意力提取遮挡条件下的图像特征 | [论文](https://doi.org/10.1109/iccv48922.2021.01094) | [代码](https://github.com/mkocabas/PARE) |
 | PyMAF | 2021 | 将当前网格投影到多尺度特征图，迭代细化参数 | [论文](https://doi.org/10.1109/iccv48922.2021.01125) | [代码](https://github.com/HongwenZhang/PyMAF) |
 | ReFit | 2023 | 用循环拟合逐次校正预测网格 | [论文](https://doi.org/10.1109/iccv51070.2023.01346) | [代码](https://github.com/yufu-wang/ReFit) |
-| Global-to-Pixel | 2024 | 动态匹配局部像素与人体结构，对全局预测作残差修正 | [论文](https://doi.org/10.1007/978-3-031-72640-8_27) | 未核实到作者代码 |
-| 跨表示对齐（Gong 等） | 2022 | 联合稀疏关键点和稠密对应细化人体 | [论文](https://doi.org/10.1007/978-3-031-19769-7_13) | 未核实到作者代码 |
+| Global-to-Pixel | 2024 | 动态匹配局部像素与人体结构，对全局预测作残差修正 | [论文](https://doi.org/10.1007/978-3-031-72640-8_27) | 暂未找到作者公开的代码链接 |
+| 跨表示对齐（Gong 等） | 2022 | 联合稀疏关键点和稠密对应细化人体 | [论文](https://doi.org/10.1007/978-3-031-19769-7_13) | 暂未找到作者公开的代码链接 |
 | SPIN | 2019 | 用回归初始化拟合，并将拟合结果用于训练 | [论文](https://doi.org/10.1109/iccv.2019.00234) | [代码](https://github.com/nkolot/SPIN) |
 | TokenHMR | 2024 | 用离散姿态表示和自适应损失减轻投影偏差 | [论文](https://doi.org/10.1109/cvpr52733.2024.00132) | [代码](https://github.com/saidwivedi/TokenHMR) |
 | ProHMR | 2021 | 建模给定图像时的人体姿态条件分布 | [论文](https://doi.org/10.1109/iccv48922.2021.01140) | [代码](https://github.com/nkolot/ProHMR) |
@@ -148,8 +148,8 @@ CPU 路线从随包预测生成顶点并重新评分；GPU 路线从原始 RGB �
 | HMMR | 2019 | 从单目裁剪序列学习三维人体动态 | [论文](https://doi.org/10.1109/cvpr.2019.00576) | [代码](https://github.com/akanazawa/human_dynamics) |
 | VIBE | 2020 | 用时序编码器和动作判别器约束视频网格 | [论文](https://doi.org/10.1109/cvpr42600.2020.00530) | [代码](https://github.com/mkocabas/VIBE) |
 | TCMR | 2021 | 融合当前帧两侧的信息，改善网格时间一致性 | [论文](https://doi.org/10.1109/cvpr46437.2021.00200) | [代码](https://github.com/hongsukchoi/TCMR_RELEASE) |
-| DTS-VIBE | 2022 | 融合 RGB 和光流，并通过跨帧对应约束视频预测 | [论文](https://doi.org/10.1109/wacv51458.2022.00071) | 未核实到作者代码 |
-| 部件动态模型（Lee 和 Lee） | 2021 | 分别预测不同身体部件的姿态变化及不确定性 | [论文](https://doi.org/10.1109/iccv48922.2021.01215) | 未核实到作者代码 |
+| DTS-VIBE | 2022 | 融合 RGB 和光流，并通过跨帧对应约束视频预测 | [论文](https://doi.org/10.1109/wacv51458.2022.00071) | 暂未找到作者公开的代码链接 |
+| 部件动态模型（Lee 和 Lee） | 2021 | 分别预测不同身体部件的姿态变化及不确定性 | [论文](https://doi.org/10.1109/iccv48922.2021.01215) | 暂未找到作者公开的代码链接 |
 | MAED | 2021 | 用多层时空注意力与运动链解码估计视频姿态和体型 | [论文](https://doi.org/10.1109/iccv48922.2021.01279) | [代码](https://github.com/ziniuwan/maed) |
 | TFNet | 2023 | 用频域特征引导时序聚合 | [论文](https://doi.org/10.1109/icassp49357.2023.10095498) | [作者仓库（仅发布说明）](https://github.com/Changboyang/TFNet) |
 | MEVA | 2021 | 先压缩动作得到平滑估计，再以图像特征恢复细节 | [论文](https://doi.org/10.1007/978-3-030-69541-5_20) | [代码](https://github.com/ZhengyiLuo/MEVA) |
@@ -165,12 +165,12 @@ CPU 路线从随包预测生成顶点并重新评分；GPU 路线从原始 RGB �
 
 | 方法 | 年份 | 在综述中解决的问题 | 原论文 | 代码与项目 |
 | --- | ---: | --- | --- | --- |
-| Guan 等（单图拟合） | 2009 | 结合单图关键点与轮廓估计人体姿态、体型 | [论文](https://doi.org/10.1109/iccv.2009.5459300) | 未核实到作者代码 |
+| Guan 等（单图拟合） | 2009 | 结合单图关键点与轮廓估计人体姿态、体型 | [论文](https://doi.org/10.1109/iccv.2009.5459300) | 暂未找到作者公开的代码链接 |
 | SMPLify | 2016 | 以二维关节和先验分阶段拟合 SMPL | [论文](https://doi.org/10.1007/978-3-319-46454-1_34) | [模型与拟合代码（注册）](https://smplify.is.tue.mpg.de/) |
 | UP-3D | 2017 | 以模型拟合生成图像的三维人体标注 | [论文](https://doi.org/10.1109/cvpr.2017.500) | [代码](https://github.com/classner/up) |
 | EFT | 2021 | 对单个样本微调预训练回归器，改善人体拟合 | [论文](https://doi.org/10.1109/3dv53792.2021.00015) | [代码](https://github.com/facebookresearch/eft) |
 | SCOPE | 2021 | 利用运动树的稀疏结构求解人体参数更新 | [论文](https://doi.org/10.1109/iccv48922.2021.01126) | [代码](https://github.com/fantaosha/SCOPE) |
-| KAMA | 2021 | 由相机空间关节解析求解身体关节旋转和整体位姿 | [论文](https://doi.org/10.1109/3dv53792.2021.00078) | [作者项目](https://research.nvidia.com/publication/2021-12_kama-3d-keypoint-aware-body-mesh-articulation)；未核实到作者代码 |
+| KAMA | 2021 | 由相机空间关节解析求解身体关节旋转和整体位姿 | [论文](https://doi.org/10.1109/3dv53792.2021.00078) | [作者项目](https://research.nvidia.com/publication/2021-12_kama-3d-keypoint-aware-body-mesh-articulation)；暂未找到作者公开的代码链接 |
 | IKOL | 2023 | 以可微 Gauss–Newton 逆运动学层协调骨架与网格 | [论文](https://doi.org/10.1609/aaai.v37i3.25454) | [代码](https://github.com/Juzezhang/IKOL) |
 | PLIKS | 2023 | 结合相机内参与顶点投影进行伪线性逆运动学求解 | [论文](https://doi.org/10.1109/cvpr52729.2023.00063) | [代码](https://github.com/karShetty/PLIKS) |
 | 学习梯度下降（Song 等） | 2020 | 根据观测误差的梯度学习人体模型更新步长与方向 | [论文](https://doi.org/10.1007/978-3-030-58565-5_44) | [代码](https://github.com/InpatientJam/Learned-Gradient-Descent) |
@@ -200,7 +200,7 @@ CPU 路线从随包预测生成顶点并重新评分；GPU 路线从原始 RGB �
 | RingNet | 2019 | 学习同身份图像间的一致性以估计形状和表情 | [论文](https://doi.org/10.1109/cvpr.2019.00795) | [代码](https://github.com/soubhiksanyal/RingNet) |
 | MICA | 2022 | 结合身份特征与统一扫描监督估计度量人脸形状 | [论文](https://doi.org/10.1007/978-3-031-19778-9_15) | [代码](https://github.com/Zielon/MICA) |
 | DECA | 2021 | 结合身份细节和表情参数生成 UV 位移 | [论文](https://doi.org/10.1145/3450626.3459936) | [代码](https://github.com/yfeng95/DECA) |
-| HiFace | 2023 | 用静态位移图和动态位移图恢复表情细节 | [论文](https://doi.org/10.1109/iccv51070.2023.00834) | [作者项目](https://project-hiface.github.io/)；未核实到作者代码 |
+| HiFace | 2023 | 用静态位移图和动态位移图恢复表情细节 | [论文](https://doi.org/10.1109/iccv51070.2023.00834) | [作者项目](https://project-hiface.github.io/)；暂未找到作者公开的代码链接 |
 | EMOCA | 2022 | 在 DECA 上加入情绪感知的表情约束 | [论文](https://doi.org/10.1109/cvpr52688.2022.01967) | [代码](https://github.com/radekd91/emoca) |
 
 <a id="whole-body"></a>
@@ -242,23 +242,23 @@ CPU 路线从随包预测生成顶点并重新评分；GPU 路线从原始 RGB �
 
 | 方法 | 年份 | 任务 | 论文 | 代码或项目 |
 | --- | --- | --- | --- | --- |
-| Camera Motion Agnostic | 2022 | 由局部关节旋转序列估计整体旋转和平移增量，累积人体轨迹 | [论文](https://doi.org/10.3390/s22207975) | 未核实到作者代码 |
+| Camera Motion Agnostic | 2022 | 由局部关节旋转序列估计整体旋转和平移增量，累积人体轨迹 | [论文](https://doi.org/10.3390/s22207975) | 暂未找到作者公开的代码链接 |
 | TRACE | 2023 | 以全图时序特征、光流与运动偏移恢复首帧相机参照下的多人轨迹 | [论文](https://doi.org/10.1109/cvpr52729.2023.00855) | [代码](https://github.com/Arthur151/ROMP) |
-| ProxyCap | 2024 | 在人体坐标中预测姿态、相机与接触，再用图像及足部反馈修正运动 | [论文](https://doi.org/10.1109/cvpr52733.2024.00191) | 未核实到作者代码 |
+| ProxyCap | 2024 | 在人体坐标中预测姿态、相机与接触，再用图像及足部反馈修正运动 | [论文](https://doi.org/10.1109/cvpr52733.2024.00191) | 暂未找到作者公开的代码链接 |
 | WHAM | 2024 | 结合人体运动、相机角速度和足部接触恢复世界运动，见表 7–9 | [论文](https://doi.org/10.1109/cvpr52733.2024.00202) | [代码](https://github.com/yohanshin/WHAM) |
 | GVHMR | 2024 | 在重力与观察方向构成的参照中预测人体，利用相机旋转与静止肢体修正轨迹 | [论文](https://doi.org/10.1145/3680528.3687565) | [代码](https://github.com/zju3dv/GVHMR) |
 | WHAC | 2024 | 以人体运动定标视觉里程计平移，联合恢复度量相机与人体轨迹 | [论文](https://doi.org/10.1007/978-3-031-72754-2_2) | [代码](https://github.com/MotrixLab/WHAC) |
 | TRAM（含 VIMO） | 2024 | 用人体遮罩和预测度量深度定标背景 SLAM，将局部人体变换到世界坐标 | [论文](https://doi.org/10.1007/978-3-031-73247-8_27) | [代码](https://github.com/yufu-wang/tram) |
 | HAC | 2025 | 以人体与场景接触点的深度关系估计相机平移尺度 | [论文](https://doi.org/10.1109/ICCV51701.2025.00573) | [代码](https://github.com/MartaYang/HumansAsCheckerboards) |
-| MBTI | 2025 | 按实际采样时刻处理不同帧率，以掩码视觉 SLAM 建立世界参照 | [论文](https://doi.org/10.1109/iccv51701.2025.01076) | 未核实到作者代码 |
+| MBTI | 2025 | 按实际采样时刻处理不同帧率，以掩码视觉 SLAM 建立世界参照 | [论文](https://doi.org/10.1109/iccv51701.2025.01076) | 暂未找到作者公开的代码链接 |
 | PromptHMR / PromptHMR-Vid | 2025 | 通过提示选择人物，视频版结合时序解码、相机轨迹和场景深度 | [论文](https://doi.org/10.1109/cvpr52734.2025.00115) | [代码](https://github.com/yufu-wang/PromptHMR) |
 | HumanMM | 2025 | 分别估计镜头内运动，借切换帧人体关键点连接镜头间相机旋转 | [论文](https://doi.org/10.1109/CVPR52734.2025.00190) | [作者仓库（数据入口，代码待发布）](https://github.com/zhangyuhong01/HumanMM-code) |
 | PhysHMR | 2025 | 利用二维关节对应的世界射线，驱动物理控制策略恢复人体运动 | [论文](https://doi.org/10.1145/3757377.3763951) | [代码](https://github.com/fengq1a0/PhysHMR) |
 | GLAMR | 2022 | 补全遮挡动作并优化根部轨迹与相机外参，见表 8、9 | [论文](https://doi.org/10.1109/cvpr52688.2022.01076) | [代码](https://github.com/NVlabs/GLAMR) |
 | SLAHMR | 2023 | 利用背景 SLAM、人体运动先验、地面与接触优化世界运动 | [论文](https://doi.org/10.1109/cvpr52729.2023.02033) | [代码](https://github.com/vye16/slahmr) |
 | HuMoR | 2021 | 学习人体运动状态转移先验，为视频拟合及 SLAHMR 提供约束 | [论文](https://doi.org/10.1109/iccv48922.2021.01129) | [代码](https://github.com/davrempe/humor) |
-| PACE | 2024 | 用人体动作场和背景点重投影分阶段优化人体与逐帧相机位姿 | [论文](https://doi.org/10.1109/3dv62453.2024.00103) | [作者项目](https://nvlabs.github.io/PACE/) · 未核实到作者代码 |
-| BodySLAM | 2022 | 把人体运动模型纳入相机定位与场景建图 | [论文](https://doi.org/10.1007/978-3-031-19842-7_38) | [作者项目](https://srl.cit.tum.de/research/projects/bodyslam) · 未核实到作者代码 |
+| PACE | 2024 | 用人体动作场和背景点重投影分阶段优化人体与逐帧相机位姿 | [论文](https://doi.org/10.1109/3dv62453.2024.00103) | [作者项目](https://nvlabs.github.io/PACE/) · 暂未找到作者公开的代码链接 |
+| BodySLAM | 2022 | 把人体运动模型纳入相机定位与场景建图 | [论文](https://doi.org/10.1007/978-3-031-19842-7_38) | [作者项目](https://srl.cit.tum.de/research/projects/bodyslam) · 暂未找到作者公开的代码链接 |
 
 <a id="interaction"></a>
 
@@ -273,15 +273,15 @@ CPU 路线从随包预测生成顶点并重新评分；GPU 路线从原始 RGB �
 | PROX | 2019 | 将人体与扫描场景对齐，通过接触和非穿透改善身体放置 | [论文](https://doi.org/10.1109/iccv.2019.00237) | [代码](https://github.com/mohamedhassanmus/prox) |
 | PhysCap | 2020 | 在标定相机和已知地面下，用物理跟踪与接触预测细化动作 | [论文](https://doi.org/10.1145/3414685.3417877) | [作者演示代码](https://github.com/soshishimada/PhysCap_demo_release) |
 | NeuralPhysCap | 2021 | 通过可微控制与动力学循环恢复物理一致的运动 | [论文](https://doi.org/10.1145/3450626.3459825) | [作者演示代码](https://github.com/soshishimada/Neural_Physcap_Demo) |
-| 轨迹优化（Gärtner 等） | 2022 | 用适配人体尺寸的物理角色优化单目三维动作轨迹 | [论文](https://doi.org/10.1109/cvpr52688.2022.01276) | [作者项目](https://gartner.io/trajectory/) · 未核实到作者代码 |
-| Neural MoCon | 2022 | 用神经运动控制结合给定的场景几何估计人体动作 | [论文](https://doi.org/10.1109/cvpr52688.2022.00631) | [作者出版目录](https://www.buzhenhuang.com/publications/) · 未核实到作者代码 |
-| 软接触动力学（Xie 等） | 2021 | 通过可微物理和接触力模型从视频估计、合成动作 | [论文](https://doi.org/10.1109/iccv48922.2021.01133) | [作者项目](https://research.nvidia.com/labs/toronto-ai/physics-pose-estimation-project-page/) · 未核实到作者代码 |
+| 轨迹优化（Gärtner 等） | 2022 | 用适配人体尺寸的物理角色优化单目三维动作轨迹 | [论文](https://doi.org/10.1109/cvpr52688.2022.01276) | [作者项目](https://gartner.io/trajectory/) · 暂未找到作者公开的代码链接 |
+| Neural MoCon | 2022 | 用神经运动控制结合给定的场景几何估计人体动作 | [论文](https://doi.org/10.1109/cvpr52688.2022.00631) | [作者出版目录](https://www.buzhenhuang.com/publications/) · 暂未找到作者公开的代码链接 |
+| 软接触动力学（Xie 等） | 2021 | 通过可微物理和接触力模型从视频估计、合成动作 | [论文](https://doi.org/10.1109/iccv48922.2021.01133) | [作者项目](https://research.nvidia.com/labs/toronto-ai/physics-pose-estimation-project-page/) · 暂未找到作者公开的代码链接 |
 | PhysDynPose | 2025 | 以人体及相机初值、地形高度图和参考足接触细化运动，见表 9 | [论文](https://doi.org/10.1109/cvprw67362.2025.00374) | [代码](https://github.com/aidilayce/PhysDynPose) |
 | PHOSA | 2020 | 结合身体、物体模板、遮挡和接触，估计单图人—物空间关系 | [论文](https://doi.org/10.1007/978-3-030-58610-2_3) | [代码](https://github.com/facebookresearch/phosa) |
 | HolisticMesh | 2021 | 从图像估计人体、物体与室内布局，再优化空间关系 | [论文](https://doi.org/10.1109/cvpr46437.2021.00040) | [代码](https://github.com/ZZWENG/holistic_mesh) |
 | PhySIC | 2025 | 估计遮挡场景并协调人体与场景尺度，约束接触与支撑 | [论文](https://doi.org/10.1145/3757377.3763862) | [代码](https://github.com/YuxuanSnow/Phy-SIC) |
 | MOVER | 2022 | 在固定相机下利用人体运动产生的遮挡、自由空间和接触线索恢复布局 | [论文](https://doi.org/10.1109/cvpr52688.2022.00393) | [代码](https://github.com/yhw-yhw/MOVER) |
-| SynCHMR | 2024 | 用人体尺度校准建图深度，再用时序场景点云细化世界网格 | [论文](https://doi.org/10.1109/CVPR52733.2024.00122) | [作者项目](https://paulchhuang.github.io/synchmr/) · 未核实到作者代码 |
+| SynCHMR | 2024 | 用人体尺度校准建图深度，再用时序场景点云细化世界网格 | [论文](https://doi.org/10.1109/CVPR52733.2024.00122) | [作者项目](https://paulchhuang.github.io/synchmr/) · 暂未找到作者公开的代码链接 |
 | DUSt3R | 2024 | 恢复多视图共享点图，为人景联合建模提供场景几何 | [论文](https://doi.org/10.1109/cvpr52733.2024.01956) | [代码](https://github.com/naver/dust3r) |
 | MASt3R | 2024 | 在三维点图上学习稠密匹配特征，为多视图关联提供对应 | [论文](https://doi.org/10.1007/978-3-031-73220-1_5) | [代码](https://github.com/naver/mast3r) |
 | VGGT | 2025 | 从多视图图像预测相机参数、深度、点图与点轨迹 | [论文](https://doi.org/10.1109/cvpr52734.2025.00499) | [代码](https://github.com/facebookresearch/vggt) |
@@ -292,18 +292,18 @@ CPU 路线从随包预测生成顶点并重新评分；GPU 路线从原始 RGB �
 
 | 方法 | 年份 | 任务 | 论文 | 代码或项目 |
 | --- | --- | --- | --- | --- |
-| LMT / LT-fitting | 2023 | LMT 融合可见顶点并拟合 SMPL，表 10 的 LT-fitting 用关节三角化后拟合作对照 | [论文](https://doi.org/10.1109/wacv56688.2023.00287) | [作者项目](https://sites.google.com/view/learnable-mesh-triangulation/home) · 未核实到作者代码 |
-| Vertex Heatmap Representation Learning | 2023 | 用 AMASS 学习高维顶点热图的潜在表示，约束多视图网格 | [论文](https://doi.org/10.1109/icip49359.2023.10222297) | 未核实到作者代码 |
+| LMT / LT-fitting | 2023 | LMT 融合可见顶点并拟合 SMPL，表 10 的 LT-fitting 用关节三角化后拟合作对照 | [论文](https://doi.org/10.1109/wacv56688.2023.00287) | [作者项目](https://sites.google.com/view/learnable-mesh-triangulation/home) · 暂未找到作者公开的代码链接 |
+| Vertex Heatmap Representation Learning | 2023 | 用 AMASS 学习高维顶点热图的潜在表示，约束多视图网格 | [论文](https://doi.org/10.1109/icip49359.2023.10222297) | 暂未找到作者公开的代码链接 |
 | Shape-Aware HPS | 2019 | 跨视图共享局部姿态和体型，分别估计每幅图像的朝向与投影参数 | [论文](https://doi.org/10.1109/iccv.2019.00445) | [代码](https://github.com/williamljb/HumanMultiView) |
 | PaFF | 2023 | 将 SMPL 顶点重投影至各视图，迭代融合像素对齐反馈 | [论文](https://doi.org/10.1609/aaai.v37i1.25179) | [作者仓库（准备脚本）](https://github.com/Kairobo/PaFF) |
-| Progressive Multi-view HMR | 2023 | 将多视图观测汇入人体规范坐标，利用热图与轮廓渐进重建 | [论文](https://doi.org/10.1609/aaai.v37i1.25144) | 未核实到作者代码 |
-| Mesh-aligned Voxel Interpolation | 2025 | 沿初始网格采样多尺度体素特征，分别细化定位与人体形态 | [论文](https://doi.org/10.1016/j.inffus.2024.102651) | 未核实到作者代码 |
+| Progressive Multi-view HMR | 2023 | 将多视图观测汇入人体规范坐标，利用热图与轮廓渐进重建 | [论文](https://doi.org/10.1609/aaai.v37i1.25144) | 暂未找到作者公开的代码链接 |
+| Mesh-aligned Voxel Interpolation | 2025 | 沿初始网格采样多尺度体素特征，分别细化定位与人体形态 | [论文](https://doi.org/10.1016/j.inffus.2024.102651) | 暂未找到作者公开的代码链接 |
 | MuVS | 2017 | 结合多视图关节和轮廓拟合 SMPL，在序列中共享体型并平滑轨迹 | [论文](https://doi.org/10.1109/3dv.2017.00055) | [代码](https://github.com/YinghaoHuang91/MuVS) |
 | Shape-aware Multi-Person | 2021 | 用可靠二维观测、三维关节候选和身体形态交替更新多人骨架与网格 | [论文](https://doi.org/10.1109/iccv48922.2021.01097) | [作者仓库（代码待发布）](https://github.com/zj-dong/Multi-Person-Pose-Estimation) |
-| BundleMoCap | 2023 | 用稀疏潜在关键帧及插值表示多目动作，降低序列优化成本 | [论文](https://doi.org/10.1145/3626495.3626511) | [作者项目](https://moverseai.github.io/bundle/) · 未核实到作者代码 |
-| BundleMoCap++ | 2024 | 引入球面姿态先验、流形更新和高阶插值以改进多目序列拟合 | [论文](https://doi.org/10.1016/j.cviu.2024.104190) | 未核实到作者代码 |
+| BundleMoCap | 2023 | 用稀疏潜在关键帧及插值表示多目动作，降低序列优化成本 | [论文](https://doi.org/10.1145/3626495.3626511) | [作者项目](https://moverseai.github.io/bundle/) · 暂未找到作者公开的代码链接 |
+| BundleMoCap++ | 2024 | 引入球面姿态先验、流形更新和高阶插值以改进多目序列拟合 | [论文](https://doi.org/10.1016/j.cviu.2024.104190) | 暂未找到作者公开的代码链接 |
 | HeatFormer | 2025 | 学习对齐观测热图与当前模型热图，分别评测不同视图配置，见表 10 | [论文](https://doi.org/10.1109/cvpr52734.2025.00601) | [代码](https://github.com/kyotovision-public/HeatFormer) |
-| Monocular Models are Strong Learners | 2026 | 在逐视图特征和虚拟视图参数之间交替更新，结合解剖点重投影细化人体 | [论文](https://doi.org/10.1007/978-3-032-36839-3_10) | 未核实到作者代码 |
+| Monocular Models are Strong Learners | 2026 | 在逐视图特征和虚拟视图参数之间交替更新，结合解剖点重投影细化人体 | [论文](https://doi.org/10.1007/978-3-032-36839-3_10) | 暂未找到作者公开的代码链接 |
 | Training-free Multi-view 4D | 2026 | 在标定相机参考下融合单目全身预测，用几何和跟踪恢复多人序列 | [论文](https://doi.org/10.1109/wacv61042.2026.00039) | [代码](https://github.com/Att100/MV4DHMR) |
 
 <a id="moving-multiview"></a>
@@ -313,12 +313,12 @@ CPU 路线从随包预测生成顶点并重新评分；GPU 路线从原始 RGB �
 | 方法 | 年份 | 任务 | 论文 | 代码或项目 |
 | --- | --- | --- | --- | --- |
 | DiffProxy | 2026 | 生成分割与 UV 代理观测，按跨视图分歧加权拟合 SMPL-X | [论文](https://doi.org/10.1007/978-3-032-37098-3_17) | [代码](https://github.com/wrk226/DiffProxy) |
-| Total Capture（Adam） | 2018 | 联合多视图三角化关键点与立体点云，拟合身体、双手和面部 | [论文](https://doi.org/10.1109/cvpr.2018.00868) | [作者项目](https://www.cs.cmu.edu/~hanbyulj/totalcapture/) · 未核实到作者代码 |
-| Lightweight Total Capture | 2021 | 用身体定位引导手脸关联，在稀疏视图下恢复多人的完整运动 | [论文](https://doi.org/10.1109/iccv48922.2021.00551) | 未核实到作者代码 |
+| Total Capture（Adam） | 2018 | 联合多视图三角化关键点与立体点云，拟合身体、双手和面部 | [论文](https://doi.org/10.1109/cvpr.2018.00868) | [作者项目](https://www.cs.cmu.edu/~hanbyulj/totalcapture/) · 暂未找到作者公开的代码链接 |
+| Lightweight Total Capture | 2021 | 用身体定位引导手脸关联，在稀疏视图下恢复多人的完整运动 | [论文](https://doi.org/10.1109/iccv48922.2021.00551) | 暂未找到作者公开的代码链接 |
 | AvatarPose | 2024 | 利用逐人外观与轮廓约束多视图近距离交互姿态 | [论文](https://doi.org/10.1007/978-3-031-73668-1_13) | [代码](https://github.com/eth-ait/AvatarPose) |
 | Dynamic Multi-Person Mesh Recovery（DMMR） | 2021 | 以人体关节初始化外参，联合优化未标定多目下的多人动作与相机 | [论文](https://doi.org/10.1109/3dv53792.2021.00080) | [代码](https://github.com/boycehbz/DMMR) |
 | Human Semantics | 2024 | 用直立人体及预测身高估计相机，再联合细化人体和机位 | [论文](https://doi.org/10.1109/tcsvt.2023.3328371) | [代码](https://github.com/boycehbz/DMMR) |
-| EasyRet3D | 2025 | 结合跨视图轨迹、自动标定、地面接触和时序 SMPL 优化 | [论文](https://doi.org/10.1109/wacv61041.2025.00309) | 未核实到作者代码 |
+| EasyRet3D | 2025 | 结合跨视图轨迹、自动标定、地面接触和时序 SMPL 优化 | [论文](https://doi.org/10.1109/wacv61041.2025.00309) | 暂未找到作者公开的代码链接 |
 | HSfM | 2025 | 用人体统计尺度与场景点图联合恢复同步时刻的人体、相机和场景 | [论文](https://doi.org/10.1109/cvpr52734.2025.02044) | [代码](https://github.com/hongsukchoi/HSfM_RELEASE) |
 | AirCap | 2019 | 利用多架无人机的图像及机载位姿初值联合优化相机与身体 | [论文](https://doi.org/10.1109/iccv.2019.00091) | [作者飞行系统代码](https://github.com/robot-perception-group/AirCap) |
 | AirPose / AirPose+ | 2022 | 在飞行相机间共享局部构型，分别估计整体放置，并可经序列优化细化 | [论文](https://doi.org/10.1109/lra.2022.3145494) | [代码](https://github.com/robot-perception-group/AirPose) |
