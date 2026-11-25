@@ -2,7 +2,7 @@
 
 *Three-dimensional human mesh reconstruction with fixed and moving cameras: a survey*
 
-![固定相机与移动相机从不同视角观测三维人体网格的概念示意](assets/survey-cover.jpg)
+![固定相机与移动相机从不同视角观测三维人体网格的概念示意](https://github.com/user-attachments/assets/6634ae35-6716-4c0b-85c4-e1dac8ed26b2)
 
 <a id="contents"></a>
 
