@@ -1,0 +1,11 @@
+# Linux x86_64, Python 3.10. The PyPI build of torch 2.6.0 uses CUDA 12.4 on this platform.
+-r requirements-score.txt
+torchvision==0.21.0
+
+# HaMeR image preprocessing and network modules
+opencv-python-headless==4.10.0.84
+scikit-image==0.21.0
+timm==0.9.16
+einops==0.8.1
+yacs==0.1.8
+braceexpand==0.1.7

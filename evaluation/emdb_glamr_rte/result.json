@@ -1,0 +1,15 @@
+{
+  "method": "GLAMR (released prediction, seed 1)",
+  "sequence": "P9/80_outdoor_walk_big_circle",
+  "person": 0,
+  "frame_count": 2240,
+  "first_frame": 0,
+  "last_frame": 2239,
+  "reference": "gt[0].root_trans",
+  "prediction": "person_data[0].root_trans_world",
+  "alignment": "one rigid transform fitted to all frames; scale fixed at 1",
+  "reference_path_length_m": 106.3839146821854,
+  "mean_aligned_root_distance_m": 20.41725025216229,
+  "rte_percent": 19.192046385167732,
+  "sample_sha256": "9cb0e38ccf2b37b28458ce9fd5ad6974f3d81cd41d6fa28690779f730898d9e3"
+}
